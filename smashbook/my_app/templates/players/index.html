@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/players/players-index.css' %}" />
+{% endblock %} {% block content %}
+
+<section class="page-header">
+  <h1>Player List</h1>
+  <img src="{% static 'images/ball.png' %}" alt="A ball icon" />
+</section>
+
+<section class="card-container">
+  {% for player in players %}
+  <div class="card">
+    <div class="card-content">
+      <div class="card-img-container">
+        {% if player.gender == 'male' %}
+        <img src="{% static 'images/male.png' %}" alt="A male player" />
+        {% elif player.gender == 'female' %}
+        <img src="{% static 'images/female.png' %}" alt="A female player" />
+        {% else %}
+        <img src="{% static 'images/unisex.png' %}" alt="A player image" />
+        {% endif %}
+      </div>
+
+      <h2 class="card-title">{{ player.name }}</h2>
+
+      {% comment %}
+      <p><small>Gender: {{ player.gender }}</small></p>
+      {% endcomment %}
+      <p><small>Racquet: {{ player.racquet }}</small></p>
+      <p><small>Play Style: {{ player.play_style }}</small></p>
+      <p><small>Strength: {{ player.strength }}</small></p>
+      <p><small>Weakness: {{ player.weakness }}</small></p>
+      <p><small>UTR: {{ player.utr_rating }}</small></p>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

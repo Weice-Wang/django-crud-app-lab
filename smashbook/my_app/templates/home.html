@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %} {% block content %}
+
+<section class="logo-container">
+  <div class="mainlogo-container">
+    <img src="{% static 'images/logo.png' %}" alt="The Smash Book" />
+  </div>
+</section>
+
+{% endblock %}
