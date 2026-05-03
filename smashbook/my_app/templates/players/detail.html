@@ -1,5 +1,13 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
+<link
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}" />
+<!-- MCDatepicker JS -->
+<script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
 <link rel="stylesheet" href="{% static 'css/players/player-detail.css' %}" />
+<script defer src="{% static 'js/player-detail.js' %}"></script>
 {% endblock %} {% block content %}
 <section class="player-container">
   <div class="player-img">

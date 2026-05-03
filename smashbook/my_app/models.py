@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Player(models.Model):
     GENDER_CHOICES = [
@@ -23,12 +24,15 @@ class Player(models.Model):
     strength = models.CharField(max_length=200, blank=True)
     weakness = models.CharField(max_length=200, blank=True)
     utr_rating = models.FloatField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
     
     def get_absolute_url(self):
         return reverse('player-detail', kwargs={'player_id': self.id})
+    
+   
     
 
 class Match(models.Model):
