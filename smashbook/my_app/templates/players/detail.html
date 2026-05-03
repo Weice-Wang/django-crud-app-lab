@@ -27,4 +27,49 @@
     </div>
   </div>
 </section>
+
+<div class="matches-container">
+  <section class="matches">
+    <div class="subsection-title">
+      <h2>Past Matches</h2>
+      <img src="{% static 'images/match.png' %}" alt="two players playing" />
+    </div>
+    <h3>Add a Match</h3>
+
+    <form
+      action="{% url 'add-match' player.id %}"
+      method="post"
+      class="subsection-content"
+      autocomplete="off"
+    >
+      {% csrf_token %} {{ match_form.as_p }}
+      <button type="submit" class="btn submit">Add match</button>
+    </form>
+    {% if player.match_set.all.count %}
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Score (You vs {{player.name}})</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for match in player.match_set.all %}
+        <tr>
+          <td>{{ match.date}}</td>
+          <td>{{ match.score }}</td>
+          <td>You {{ match.get_result_display }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>⚠️ You haven't played with {{player.name}} yet!</p>
+    </div>
+    {% endif %}
+  </section>
+</div>
+
 {% endblock %}

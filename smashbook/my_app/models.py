@@ -29,3 +29,19 @@ class Player(models.Model):
     
     def get_absolute_url(self):
         return reverse('player-detail', kwargs={'player_id': self.id})
+    
+
+class Match(models.Model):
+    date = models.DateField()
+    score = models.CharField(max_length=50)
+    result = models.CharField(
+        max_length=10,
+        choices=[('win', 'Win'),('loss', 'Loss')])
+    
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
+    def __str__(self):
+       return f"You vs {self.player.name} - {self.result} on {self.date}"
+    
+    class Meta:
+        ordering = ['-date']

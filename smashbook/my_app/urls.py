@@ -9,4 +9,5 @@ urlpatterns = [
     path('players/create/', views.PlayerCreate.as_view(), name='player-create'),
     path('players/<int:pk>/update/', views.PlayerUpdate.as_view(), name='player-update'),
     path('players/<int:pk>/delete/', views.PlayerDelete.as_view(), name='player-delete'),
+    path('players/<int:player_id>/add-match/', views.add_match, name='add-match'),
 ]
