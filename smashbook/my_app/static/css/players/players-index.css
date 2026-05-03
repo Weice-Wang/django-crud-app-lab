@@ -24,7 +24,7 @@
 
 .card > a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--content-a-text-color);
 }
 
 .card h2 {

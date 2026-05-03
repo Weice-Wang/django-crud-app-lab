@@ -1,9 +1,11 @@
 from django.db import models
+from django.urls import reverse
 
 class Player(models.Model):
     GENDER_CHOICES = [
         ('male', 'Male'),
         ('female', 'Female'),
+        ('unisex', 'Unisex')
     ]
 
     PLAYSTYLE_CHOICES = [
@@ -24,3 +26,6 @@ class Player(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('player-detail', kwargs={'player_id': self.id})

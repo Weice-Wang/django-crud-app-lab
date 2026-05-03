@@ -33,6 +33,7 @@ body {
   --nav-bg-ff: rgb(255, 255, 255);
   --borders: rgba(0, 0, 0) solid 2px;
   --text-color: rgb(255, 255, 255);
+  --content-a-text-color: rgb(0, 0, 0);
   --link-hover-color: rgb(245, 253, 12);
   --button-bg: rgb(245, 245, 245);
   --button-bg-hover: rgb(226, 226, 226);
@@ -177,6 +178,7 @@ nav li {
     flex-direction: row;
     top: 0;
     align-items: center;
+    background-color: black;
   }
 
   main {
@@ -231,7 +233,7 @@ nav li {
   }
 }
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1024px) {
   main {
     min-height: calc(100vh - 55px);
   }
@@ -241,7 +243,7 @@ nav li {
     width: calc(100vw - 40px);
     max-width: 1920px;
     top: 20px;
-    background-color: transparent;
+    background-color: black;
     border-bottom: none;
   }
 
